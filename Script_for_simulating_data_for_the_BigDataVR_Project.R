@@ -1,8 +1,14 @@
-# Script for simulating ALSPAC data for the BigDataVR project (project: B2506)
+#########################################################
+# Big Data VR Project: Data simulation
+# Demetris Avraam, Becca Wilson, Paul Burton
+# Data 2 Knowledge Research Group, University of Bristol
+#########################################################
+
+#Script for simulating ALSPAC data for the BigDataVR project (project: B2506)
 
 set.seed(48272)
 
-path <- "C:/Users/da15564/Dropbox/Demetris_BRISTOL/Virtual Reality Project/Burton_18Oct16.csv"
+path <- "[FILENAME]"
 
 # Read the actual data
 data <- read.csv(path, header=TRUE)
@@ -365,7 +371,7 @@ random.data.frame3$age.17 <- rnorm(1550000, mean(age.17), sd(age.17))
 #
 #######################################################################
 
-setwd("C:/Users/da15564/Dropbox/Demetris_BRISTOL/Virtual Reality Project")
+setwd("[FILEPATH]")
 
 names(random.data.frame1)
 dim(random.data.frame1)
