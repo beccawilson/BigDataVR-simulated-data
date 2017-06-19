@@ -2,9 +2,13 @@
 # Big Data VR Project: Data simulation
 # Demetris Avraam, Becca Wilson, Paul Burton
 # Data 2 Knowledge Research Group, University of Bristol
+#
+# Software: R v.3.2.3
+# Purpose: This script simulates 3 synthetic datasets 
+#          from longitudinal study data from the ALSPAC 
+#          study.  These data are used in the Big Data VR
+#          project.
 #########################################################
-
-#Script for simulating ALSPAC data for the BigDataVR project (project: B2506)
 
 set.seed(48272)
 
