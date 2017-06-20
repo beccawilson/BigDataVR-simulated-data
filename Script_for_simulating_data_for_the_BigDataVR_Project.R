@@ -6,7 +6,7 @@
 # Software: R v.3.2.3
 # Purpose: This script simulates 3 synthetic datasets 
 #          from longitudinal study data from the ALSPAC 
-#          study.  These data are used in the Big Data VR
+#          study. These data are used in the Big Data VR
 #          project.
 #########################################################
 
@@ -436,6 +436,16 @@ for (i in 1:dim(newD)[2]){
 cbind(names(simulated.data.2), mean.newD, var.newD)
 
 # Convert ages in years to ages in months
+simulated.data.1$age.7 <- simulated.data.1$age.7*12
+simulated.data.1$age.8 <- simulated.data.1$age.8*12
+simulated.data.1$age.9 <- simulated.data.1$age.9*12
+simulated.data.1$age.10 <- simulated.data.1$age.10*12
+simulated.data.1$age.11 <- simulated.data.1$age.11*12
+simulated.data.1$age.12 <- simulated.data.1$age.12*12
+simulated.data.1$age.13 <- simulated.data.1$age.13*12
+simulated.data.1$age.15 <- simulated.data.1$age.15*12
+simulated.data.1$age.17 <- simulated.data.1$age.17*12
+
 simulated.data.2$age.7 <- simulated.data.2$age.7*12
 simulated.data.2$age.8 <- simulated.data.2$age.8*12
 simulated.data.2$age.9 <- simulated.data.2$age.9*12
@@ -446,31 +456,60 @@ simulated.data.2$age.13 <- simulated.data.2$age.13*12
 simulated.data.2$age.15 <- simulated.data.2$age.15*12
 simulated.data.2$age.17 <- simulated.data.2$age.17*12
 
+simulated.data.3$age.7 <- simulated.data.3$age.7*12
+simulated.data.3$age.8 <- simulated.data.3$age.8*12
+simulated.data.3$age.9 <- simulated.data.3$age.9*12
+simulated.data.3$age.10 <- simulated.data.3$age.10*12
+simulated.data.3$age.11 <- simulated.data.3$age.11*12
+simulated.data.3$age.12 <- simulated.data.3$age.12*12
+simulated.data.3$age.13 <- simulated.data.3$age.13*12
+simulated.data.3$age.15 <- simulated.data.3$age.15*12
+simulated.data.3$age.17 <- simulated.data.3$age.17*12
+
 # Convert gender 0-1 data to 1-2 data
+simulated.data.1$sex <- simulated.data.1$sex+1
 simulated.data.2$sex <- simulated.data.2$sex+1
+simulated.data.3$sex <- simulated.data.3$sex+1
 
 # Compare the means of the variables
-names(simulated.data.2)
+names(simulated.data.1)
+mean.simulated.data.1 <- c()
+var.simulated.data.1 <- c()
+for (i in 1:dim(simulated.data.1)[2]){
+  mean.simulated.data.1[i] <- mean(simulated.data.1[,i])
+  var.simulated.data.1[i] <- var(simulated.data.1[,i])
+}
+ 
 mean.simulated.data.2 <- c()
 var.simulated.data.2 <- c()
 for (i in 1:dim(simulated.data.2)[2]){
   mean.simulated.data.2[i] <- mean(simulated.data.2[,i])
   var.simulated.data.2[i] <- var(simulated.data.2[,i])
+}
+ 
+mean.simulated.data.3 <- c()
+var.simulated.data.3 <- c()
+for (i in 1:dim(simulated.data.3)[2]){
+  mean.simulated.data.3[i] <- mean(simulated.data.3[,i])
+  var.simulated.data.3[i] <- var(simulated.data.3[,i])
 } 
-cbind(names(simulated.data.2), mean.simulated.data.2, var.simulated.data.2)
-mean <- cbind(names(simulated.data.2), mean.newD, mean.simulated.data.2)
+
+mean <- cbind(names(simulated.data.1), mean.newD, mean.simulated.data.1, mean.simulated.data.2, mean.simulated.data.3)
+colnames(mean) <- c('Variable', 'Mean of real ALSPAC data', 'Mean of simulated data 1', 'Mean of simulated data 2', 'Mean of simulated data 3')
 write.csv(mean, file="mean.csv")
 
 # Compare the variances of the variables
-vars <- cbind(names(simulated.data.2), var.newD, var.simulated.data.2)
+vars <- cbind(names(simulated.data.1), var.newD, var.simulated.data.1, var.simulated.data.2, var.simulated.data.3)
+colnames(vars) <- c('Variable', 'Variance of real ALSPAC data', 'Variance of simulated data 1', 'Variance of simulated data 2', 'Variance of simulated data 3')
 write.csv(vars, file="variance.csv")
 
 # Compare the covariance matrices of the data
-sim.cov <- cov(simulated.data.2)
-write.csv(sim.cov, file="covariance_simulated_155000_data.csv")
+sim.cov.1 <- cov(simulated.data.1)
+sim.cov.2 <- cov(simulated.data.2)
+sim.cov.3 <- cov(simulated.data.3)
+write.csv(sim.cov.1, file="covariance.simulated.data.1.csv")
+write.csv(sim.cov.2, file="covariance.simulated.data.2.csv")
+write.csv(sim.cov.3, file="covariance.simulated.data.3.csv")
 real.cov <- cov(newD)
 write.csv(real.cov, file="covariance_real_1593_data.csv")
-
-
-
 
