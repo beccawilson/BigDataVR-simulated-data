@@ -3,9 +3,9 @@ The Big Data VR project aimed to build a VR proof-of-concept biomedical data exp
 
 This script generates 3 synthetic datasets (of observation size 15500, 155000 and 1550000 respectively) simulated from data held by the ALSPAC birth cohort study (www.bristol.ac.uk/alspac) that were used during the project.  It also checks that the attributes of the simulated data matches that of the cohort data.
 
-Simulated data availability: DOI PENDING
+Simulated data availability: https://doi.org/10.5523/bris.3116aupg8mfgi23pnslu8tulev
 
-Data Paper: DOI PENDING
+Data Paper: doi: 10.12688/wellcomeopenres.12441.1
 
 
 
