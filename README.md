@@ -4,6 +4,7 @@ This script generates 3 synthetic datasets (of observation size 15500, 155000 an
 
 # Project publications
 * Avraam et al., 2017. [DOI:10.12688/wellcomeopenres.12441.1](https://doi.org/10.12688/wellcomeopenres.12441.1)
+* Maddix, Wilson and Garner, 2015. [Wellcome Trust annual review](https://wellcome.ac.uk/sites/default/files/wtp060076.pdf) p20-21
 
 # Data availability
 Simulated data availability from University of Bristol data repository [DOI:10.5523/bris.3116aupg8mfgi23pnslu8tulev](https://doi.org/10.5523/bris.3116aupg8mfgi23pnslu8tulev)
